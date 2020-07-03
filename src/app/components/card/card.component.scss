@@ -1,0 +1,10 @@
+.card {
+	&.is-beginner {
+		background-color: #4CAF50;
+
+		h4,
+		.card-text {
+			color: #ffffff;
+		}
+	}
+}

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.is-first .card-body {
+	background-color: #03A9F4;
+}
+
+
+.is-last .card-body {
+	background-color: #9C27B0;
+}
+
+.is-odd .card-body {
+	background-color: #3F51B5;
+}
+
+.is-first,
+.is-odd,
+.is-last {
+	.card-body {
+
+		h4,
+		p.card-text {
+			color: #ffffff;
+		}
+	}
+}

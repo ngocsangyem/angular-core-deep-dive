@@ -1,0 +1,33 @@
+<ng-container *ngIf="card">
+	<div class="card mb-3" [ngClass]="cardClasses()">
+
+		<img class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap" *ngIf="isImageVisible(); else noImage">
+
+		<ng-template #noImage>
+			<p class="my-4 text-center">There is no image</p>
+		</ng-template>
+
+		<div class="card-body">
+
+			<h4 class="card-title">
+				<a [ngStyle]="cardStyles()">
+					{{cardIndex + ' ' + card.description}}
+				</a>
+			</h4>
+			<p class="card-catagory" [ngSwitch]="card.category">
+				<span class="badge badge-primary" *ngSwitchCase="'Beginner'">Beginner</span>
+				<span class="badge badge-primary" *ngSwitchCase="'Advanced'">Advanced</span>
+				<span class="badge badge-primary" *ngSwitchDefault>All levels</span>
+			</p>
+			<p class="card-text">{{card.longDescription}}</p>
+
+			<button type="button" class="btn btn-primary mx-0" (click)="onCardViewed()">
+				Button
+			</button>
+
+		</div>
+
+	</div>
+</ng-container>
+
+<h1>{{title}}</h1>
