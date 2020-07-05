@@ -1,31 +1,19 @@
-import {
-	Component,
-	ViewChild,
-	ElementRef,
-	ViewChildren,
-	QueryList,
-	AfterViewInit,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { CARDS } from 'src/data';
 import { Card } from './modals/card';
-import { CardComponent } from './components/card/card.component';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 	cards = CARDS;
-
-	@ViewChildren(CardComponent)
-	cardList: QueryList<CardComponent>;
-
-	ngAfterViewInit() {
-		console.log(this.cardList);
-	}
+	angularCard = CARDS[0];
+	rxJsCard = CARDS[1];
+	ngRxCard = CARDS[2];
 
 	onCardSelected(card: Card) {
-		// console.log(this.card);
+		console.log(card);
 	}
 }

@@ -12,7 +12,7 @@
 
 			<h4 class="card-title">
 				<a [ngStyle]="cardStyles()">
-					{{cardIndex + ' ' + card.description}}
+					{{card.description}}
 				</a>
 			</h4>
 			<p class="card-catagory" [ngSwitch]="card.category">
@@ -20,6 +20,9 @@
 				<span class="badge badge-primary" *ngSwitchCase="'Advanced'">Advanced</span>
 				<span class="badge badge-primary" *ngSwitchDefault>All levels</span>
 			</p>
+			<ng-content select=".total-students"></ng-content>
+			<ng-content select=".short-description"></ng-content>
+			<ng-content></ng-content>
 			<p class="card-text">{{card.longDescription}}</p>
 
 			<button type="button" class="btn btn-primary mx-0" (click)="onCardViewed()">
