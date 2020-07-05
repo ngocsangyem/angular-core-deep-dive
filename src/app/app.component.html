@@ -37,9 +37,9 @@
 				(cardSelected)="onCardSelected($event)" [card]="card">
 			</app-card> -->
 
-			<app-card (cardSelected)="onCardSelected($event)" [card]="card">
+			<app-card #card1 (cardSelected)="onCardSelected($event)" [card]="card">
 			</app-card>
-			<app-card (cardSelected)="onCardSelected($event)" [card]="cards[2]">
+			<app-card #card2 (cardSelected)="onCardSelected($event)" [card]="cards[2]">
 			</app-card>
 		</div>
 	</div>

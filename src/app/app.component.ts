@@ -11,10 +11,13 @@ import { CardComponent } from './components/card/card.component';
 export class AppComponent {
 	cards = CARDS;
 
-	@ViewChild(CardComponent, { read: ElementRef })
-	card: CardComponent;
+	@ViewChild('card1')
+	card1: CardComponent;
+	@ViewChild('card2')
+	card2: CardComponent;
 
 	onCardSelected(card: Card) {
-		console.log('card', this.card);
+		console.log('card 1', this.card1);
+		console.log('card 2', this.card2);
 	}
 }
