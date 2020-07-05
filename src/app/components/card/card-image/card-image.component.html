@@ -1,1 +1,6 @@
-<img #cardImage class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap" *ngIf="isImageVisible()">
+<img #cardImage class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap"
+	*ngIf="isImageVisible(); else noImage">
+
+<ng-template #noImage>
+	<ng-container *ngTemplateOutlet="noImageTpl; context: {description: card.description}"></ng-container>
+</ng-template>

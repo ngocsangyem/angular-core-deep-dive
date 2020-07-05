@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { Card } from 'src/app/modals/card';
 
 @Component({
@@ -8,11 +8,12 @@ import { Card } from 'src/app/modals/card';
 })
 export class CardImageComponent implements OnInit {
 	@Input() card: Card;
+	@Input() noImageTpl: TemplateRef<any>;
 	constructor() {}
 
 	ngOnInit(): void {}
 
 	isImageVisible() {
-		return this.card;
+		return this.card && this.card.thumnailUrl;
 	}
 }
