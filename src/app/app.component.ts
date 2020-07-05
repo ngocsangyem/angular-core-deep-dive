@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CARDS } from 'src/data';
 import { Card } from './modals/card';
 import { CardComponent } from './components/card/card.component';
@@ -11,7 +11,7 @@ import { CardComponent } from './components/card/card.component';
 export class AppComponent {
 	cards = CARDS;
 
-	@ViewChild(CardComponent)
+	@ViewChild(CardComponent, { read: ElementRef })
 	card: CardComponent;
 
 	onCardSelected(card: Card) {
