@@ -34,12 +34,7 @@
 	<div class="container">
 		<div class="row" *ngIf="cards[0] as card">
 			<app-card [class.col-md-6]="true" (cardSelected)="onCardSelected($event)" [card]="card">
-				<div class="total-students mb-3">
-					<span>10</span>
-				</div>
-				<p class="short-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita,
-					impedit.</p>
-				<textarea class="form-control mb-3" name="description" id="description" cols="30" rows="10"></textarea>
+				<app-card-image [imageUrl]="card.thumnailUrl"></app-card-image>
 			</app-card>
 		</div>
 	</div>

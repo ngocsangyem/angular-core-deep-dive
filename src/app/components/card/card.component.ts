@@ -1,26 +1,44 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	Input,
+	Output,
+	EventEmitter,
+	AfterViewInit,
+	ViewChild,
+	ElementRef,
+	ContentChild,
+} from '@angular/core';
 import { Card } from 'src/app/modals/card';
+import { CardImageComponent } from './card-image/card-image.component';
 
 @Component({
 	selector: 'app-card',
 	templateUrl: './card.component.html',
 	styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, AfterViewInit {
 	title: string;
 	@Input() card: Card;
 	@Input() cardIndex: number;
 	@Output() cardSelected = new EventEmitter<Card>();
+
+	@ViewChild('cardContainer')
+	container: ElementRef;
+
+	@ContentChild(CardImageComponent)
+	image: CardImageComponent;
 	constructor() {}
 
 	ngOnInit(): void {}
 
-	onCardViewed() {
-		this.cardSelected.emit(this.card);
+	ngAfterViewInit() {
+		// console.log(this.container);
+		console.log(this.image);
 	}
 
-	isImageVisible() {
-		return this.card && this.card.thumnailUrl;
+	onCardViewed() {
+		this.cardSelected.emit(this.card);
 	}
 
 	cardClasses() {

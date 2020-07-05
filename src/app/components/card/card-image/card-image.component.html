@@ -1,0 +1,5 @@
+<img #cardImage class="card-img-top" [src]="imageUrl" alt="Card image cap" *ngIf="isImageVisible(); else noImage">
+
+<ng-template #noImage>
+	<p class="my-4 text-center">There is no image</p>
+</ng-template>

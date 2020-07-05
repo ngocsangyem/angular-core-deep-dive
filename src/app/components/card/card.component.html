@@ -1,12 +1,7 @@
 <ng-container *ngIf="card">
-	<div class="card mb-3" [ngClass]="cardClasses()">
+	<div #cardContainer class="card mb-3" [ngClass]="cardClasses()">
 
-		<img #cardImage class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap"
-			*ngIf="isImageVisible(); else noImage">
-
-		<ng-template #noImage>
-			<p class="my-4 text-center">There is no image</p>
-		</ng-template>
+		<ng-content select="app-card-image"></ng-content>
 
 		<div class="card-body">
 
@@ -20,10 +15,7 @@
 				<span class="badge badge-primary" *ngSwitchCase="'Advanced'">Advanced</span>
 				<span class="badge badge-primary" *ngSwitchDefault>All levels</span>
 			</p>
-			<ng-content select=".total-students"></ng-content>
-			<ng-content select=".short-description"></ng-content>
-			<ng-content></ng-content>
-			<p class="card-text">{{card.longDescription}}</p>
+
 
 			<button type="button" class="btn btn-primary mx-0" (click)="onCardViewed()">
 				Button
@@ -33,5 +25,3 @@
 
 	</div>
 </ng-container>
-
-<h1>{{title}}</h1>
