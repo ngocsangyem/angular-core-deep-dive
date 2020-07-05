@@ -35,6 +35,8 @@
 		<div class="row" *ngIf="cards[0] as card">
 			<app-card [class.col-md-6]="true" (cardSelected)="onCardSelected($event)" [card]="card">
 				<app-card-image [imageUrl]="card.thumnailUrl"></app-card-image>
+				<app-card-image [imageUrl]="cards[1].thumnailUrl"></app-card-image>
+				<app-card-image [imageUrl]="cards[2].thumnailUrl"></app-card-image>
 			</app-card>
 		</div>
 	</div>

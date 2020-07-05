@@ -8,6 +8,9 @@ import {
 	ViewChild,
 	ElementRef,
 	ContentChild,
+	ContentChildren,
+	AfterContentInit,
+	QueryList,
 } from '@angular/core';
 import { Card } from 'src/app/modals/card';
 import { CardImageComponent } from './card-image/card-image.component';
@@ -17,7 +20,7 @@ import { CardImageComponent } from './card-image/card-image.component';
 	templateUrl: './card.component.html',
 	styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit, AfterViewInit {
+export class CardComponent implements OnInit, AfterViewInit, AfterContentInit {
 	title: string;
 	@Input() card: Card;
 	@Input() cardIndex: number;
@@ -26,15 +29,18 @@ export class CardComponent implements OnInit, AfterViewInit {
 	@ViewChild('cardContainer')
 	container: ElementRef;
 
-	@ContentChild(CardImageComponent)
-	image: CardImageComponent;
+	@ContentChildren(CardImageComponent, { read: ElementRef })
+	images: QueryList<CardImageComponent>;
 	constructor() {}
 
 	ngOnInit(): void {}
 
 	ngAfterViewInit() {
 		// console.log(this.container);
-		console.log(this.image);
+	}
+
+	ngAfterContentInit() {
+		console.log(this.images);
 	}
 
 	onCardViewed() {
