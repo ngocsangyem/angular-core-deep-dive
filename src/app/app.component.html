@@ -32,9 +32,15 @@
 
 <section class="cards py-5">
 	<div class="container">
-		<div class="row">
-			<app-card *ngFor="let card of cards; index as i" [class.col-md-6]="true" [cardIndex]="i + 1"
+		<div class="row" *ngIf="cards[0] as card">
+			<!-- <app-card *ngFor="let card of cards; index as i" [class.col-md-6]="true" [cardIndex]="i + 1"
 				(cardSelected)="onCardSelected($event)" [card]="card">
+			</app-card> -->
+
+			<!-- Always get the first component -->
+			<app-card (cardSelected)="onCardSelected($event)" [card]="card">
+			</app-card>
+			<app-card (cardSelected)="onCardSelected($event)" [card]="cards[1]">
 			</app-card>
 		</div>
 	</div>

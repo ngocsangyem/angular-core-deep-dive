@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CARDS } from 'src/data';
 import { Card } from './modals/card';
+import { CardComponent } from './components/card/card.component';
 
 @Component({
 	selector: 'app-root',
@@ -9,11 +10,11 @@ import { Card } from './modals/card';
 })
 export class AppComponent {
 	cards = CARDS;
-	angularCard = CARDS[0];
-	rxJsCard = CARDS[1];
-	ngRxCard = CARDS[2];
+
+	@ViewChild(CardComponent)
+	card: CardComponent;
 
 	onCardSelected(card: Card) {
-		console.log(card);
+		console.log('card', this.card);
 	}
 }
