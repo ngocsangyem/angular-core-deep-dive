@@ -1,4 +1,11 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import {
+	Component,
+	ViewChild,
+	ElementRef,
+	ViewChildren,
+	QueryList,
+	AfterViewInit,
+} from '@angular/core';
 import { CARDS } from 'src/data';
 import { Card } from './modals/card';
 import { CardComponent } from './components/card/card.component';
@@ -8,16 +15,17 @@ import { CardComponent } from './components/card/card.component';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 	cards = CARDS;
 
-	@ViewChild('card1')
-	card1: CardComponent;
-	@ViewChild('card2')
-	card2: CardComponent;
+	@ViewChildren(CardComponent)
+	cardList: QueryList<CardComponent>;
+
+	ngAfterViewInit() {
+		console.log(this.cardList);
+	}
 
 	onCardSelected(card: Card) {
-		console.log('card 1', this.card1);
-		console.log('card 2', this.card2);
+		// console.log(this.card);
 	}
 }

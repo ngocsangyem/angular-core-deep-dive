@@ -1,7 +1,8 @@
 <ng-container *ngIf="card">
 	<div class="card mb-3" [ngClass]="cardClasses()">
 
-		<img class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap" *ngIf="isImageVisible(); else noImage">
+		<img #cardImage class="card-img-top" [src]="card.thumnailUrl" alt="Card image cap"
+			*ngIf="isImageVisible(); else noImage">
 
 		<ng-template #noImage>
 			<p class="my-4 text-center">There is no image</p>
