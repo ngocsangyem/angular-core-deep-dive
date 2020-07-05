@@ -7,12 +7,12 @@ import { Card } from 'src/app/modals/card';
 	styleUrls: ['./card-image.component.scss'],
 })
 export class CardImageComponent implements OnInit {
-	@Input() imageUrl: Card;
+	@Input() card: Card;
 	constructor() {}
 
 	ngOnInit(): void {}
 
 	isImageVisible() {
-		return this.imageUrl;
+		return this.card;
 	}
 }

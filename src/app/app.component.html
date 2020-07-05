@@ -31,12 +31,24 @@
 </nav>
 
 <section class="cards py-5">
+
+
 	<div class="container">
 		<div class="row" *ngIf="cards[0] as card">
+
+			<ng-template #noImage let-cardName="description">
+				<p class="my-4 text-center text-danger">{{cardName}} has no image yet.</p>
+				<img class="w-100" src="./assets/images/emty-image.png" alt="emty image">
+			</ng-template>
+			<ng-container *ngTemplateOutlet="noImage; context: {description: card.description}">
+
+			</ng-container>
+
+			<hr>
+			<hr>
+
 			<app-card [class.col-md-6]="true" (cardSelected)="onCardSelected($event)" [card]="card">
-				<app-card-image [imageUrl]="card.thumnailUrl"></app-card-image>
-				<app-card-image [imageUrl]="cards[1].thumnailUrl"></app-card-image>
-				<app-card-image [imageUrl]="cards[2].thumnailUrl"></app-card-image>
+				<app-card-image [card]="card"></app-card-image>
 			</app-card>
 		</div>
 	</div>
