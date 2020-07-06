@@ -16,4 +16,8 @@ export class AppComponent {
 	onCardSelected(card: Card) {
 		console.log(card);
 	}
+
+	onToggleHighlight(isHighlight: boolean) {
+		console.log(isHighlight);
+	}
 }

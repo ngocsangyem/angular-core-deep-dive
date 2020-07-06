@@ -41,8 +41,8 @@
 				<img class="w-100" src="./assets/images/emty-image.png" alt="emty image">
 			</ng-template>
 
-			<app-card [appHighlighted]="true" [class.col-md-6]="true" (cardSelected)="onCardSelected($event)"
-				[card]="card">
+			<app-card appHighlighted (toggleHighlight)="onToggleHighlight($event)" [class.col-md-6]="true"
+				(cardSelected)="onCardSelected($event)" [card]="card">
 				<app-card-image [card]="card" [noImageTpl]="noImage"></app-card-image>
 			</app-card>
 		</div>
