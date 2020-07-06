@@ -40,7 +40,7 @@ export class CardComponent implements OnInit, AfterViewInit, AfterContentInit {
 	}
 
 	ngAfterContentInit() {
-		console.log(this.images);
+		// console.log(this.images);
 	}
 
 	onCardViewed() {
