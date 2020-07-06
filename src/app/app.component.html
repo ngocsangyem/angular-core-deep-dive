@@ -43,7 +43,7 @@
 
 			<app-card appHighlighted (toggleHighlight)="onToggleHighlight($event)" [class.col-md-6]="true"
 				(cardSelected)="onCardSelected($event)" [card]="card">
-				<app-card-image [card]="card" [noImageTpl]="noImage"></app-card-image>
+				<app-card-image [card]="card" [noImageTpl]="noImage" *ngxUnless="card.thumnailUrl"></app-card-image>
 			</app-card>
 		</div>
 	</div>
